@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
     private final String key = "88219bb92b7d37a464d800ea25aecb84";
     private final String target = "image";
     private String query;
-    private ListView listView;
+    private GridView gridView;
     private ArrayList<Data> parser = new ArrayList<>();
     EditText editText;
     Button btn_search;
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.listView);
+        gridView = (GridView) findViewById(R.id.gridview);
         editText = (EditText) findViewById(R.id.edit_text);
         btn_search = (Button) findViewById(R.id.btn_search);
 
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
                 try {
                     parser = new XmlParser(is).parser();
                     Toast.makeText(getApplicationContext(), parser.size() + "개", Toast.LENGTH_SHORT).show();
-                    listView.setAdapter(new CustomAdapter(parser));
+                    gridView.setAdapter(new CustomAdapter(parser));
                 } catch (XmlPullParserException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -116,7 +117,8 @@ public class MainActivity extends Activity {
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
             String url = datas.get(position).getImageUrl();
 
-            Picasso.with(parent.getContext()).load(url).into(imageView);
+
+            Picasso.with(parent.getContext()).load(url).resize(100,100).centerCrop().into(imageView);
 
             return convertView;
         }

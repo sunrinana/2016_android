@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\chojeaho\AndroidStudioProjects\sample\app\libs\YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="29ccfbddf99584bddbaab62c0cf50dcd1c564e43">
+        <dex dex="C:\Users\chojeaho\AndroidStudioProjects\sample\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-7e0972cc48ff746b977ea748de9ec1bd8cfa950f.jar" />
+    </item>
+
+</items>
